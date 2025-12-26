@@ -156,6 +156,7 @@ style
 
 
 # OUTPUT:
-![alt text](<Screenshot (26).png>)
+![alt text]<img width="1920" height="1013" alt="projectimg" src="https://github.com/user-attachments/assets/ab4db766-6fe8-461b-ad45-addc0b3a2586" />
+(<>)
 # RESULT:
 The Project for responsive web design using Bootstrap is completed successfully.
