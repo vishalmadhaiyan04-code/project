@@ -1,5 +1,5 @@
 # Project Responsive Web Design using Bootstrap
-# Date:
+# Date:09.10.2025
 # AIM:
 To create a simplified clone of Dribbble (https://dribbble.com/) landing page.
 
@@ -23,391 +23,139 @@ Create a HTML file and include the needed Bootstrap components.
 Publish the website in the LocalHost.
 
 # PROGRAM :
-home.html
-
+```
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dribbble Clone - Shots</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .shot-card {
-      transition: transform 0.3s ease;
-    }
-    .shot-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .search-bar {
-      max-width: 500px;
-      margin: 30px auto;
-    }
-    .category-badge {
-      cursor: pointer;
-      margin: 0 5px 10px 0;
-    }
-    .category-badge.active {
-      background-color: #6f42c1;
-      color: white;
-    }
-  </style>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css">
+    <title>PharmEasy - Your Trusted Online Pharmacy</title>
+    <style>
+          h1,p,h2{
+            color:cyan ;
+          }
+          body{
+            border: 5px double greenyellow;
+            padding: 10px;
+          }
+        </style>
+  </head>
+<body bgcolor="black"> 
+  
+  <header><center>
+    <h1>Pharmasy</h1>
+    <p >Your Trusted Online Pharmacy</p>
+    </center>
+  </header>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">dribbble</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="main.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="shots.html">Shots</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="btn btn-dark ms-2" href="signup.html">Sign up</a></li>
-        </ul>
+  <section>
+    <h2 style="text-align:center;">Featured Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="para.jpg" alt="Paracetamol">
+        <p><h1>Paracetamol</h1></p>
+        <h2>rs.30</h2></p>
       </div>
+      <div class="product-card">
+        <img src="vit.jpg" alt="Vitamin C">
+        <p><h1>Vitamin C</h1></p>
+        <h2>rs.20</h2>
+      </div>
+      <div class="product-card">
+        <img src="det.jpg" alt="Detol">
+        <p><h1>Detol</b></h1>
+        <h2>rs.50 </h2>
+      </div>
+      <div class="product-card">
+      <img src="Wellness Surgical Absorbent Cotton Roll.jpeg" alt="cotton roll">
+      <p><h1>cotton</h1></p>
+      <h2>rs.50</h2>
     </div>
-  </nav>
-
-  <!-- Search and filter -->
-  <div class="search-bar text-center">
-    <input
-      type="text"
-      id="searchInput"
-      class="form-control"
-      placeholder="Search shots by title or category..."
-      oninput="filterShots()"
-    />
-  </div>
-
-  <div class="container">
-    <!-- Category filter badges -->
-    <div class="mb-3 text-center" id="categoryFilters">
-      <span class="badge bg-secondary category-badge active" onclick="filterByCategory('all')">All</span>
-      <span class="badge bg-secondary category-badge" onclick="filterByCategory('UI')">UI</span>
-      <span class="badge bg-secondary category-badge" onclick="filterByCategory('Illustration')">Illustration</span>
-      <span class="badge bg-secondary category-badge" onclick="filterByCategory('Branding')">Branding</span>
-      <span class="badge bg-secondary category-badge" onclick="filterByCategory('Animation')">Animation</span>
+    <div class="product-card">
+      <img src="san.jpg" alt="hand sanitizer">
+      <p><h1>sanitizer</h1></p>
+      <h2>rs.60</h2>
     </div>
-
-    <!-- Shots grid -->
-    <div class="row" id="shotsContainer">
-
-      <!-- Sample shot cards (can add more) -->
-      <div class="col-md-4 mb-4 shot-item" data-title="Dark Mode Dashboard" data-category="UI">
-        <div class="card shot-card shadow-sm">
-          <img src="darkmodedashboard.png" class="card-img-top" alt="Dark Mode Dashboard" />
-          <div class="card-body">
-            <h5 class="card-title">Dark Mode Dashboard</h5>
-            <p class="card-text"><small class="text-muted">Category: UI</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 shot-item" data-title="Abstract Illustration" data-category="Illustration">
-        <div class="card shot-card shadow-sm">
-          <img src="abstract illustration.avif" class="card-img-top" alt="Abstract Illustration" />
-          <div class="card-body">
-            <h5 class="card-title">Abstract Illustration</h5>
-            <p class="card-text"><small class="text-muted">Category: Illustration</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 shot-item" data-title="Branding for Startup" data-category="Branding">
-        <div class="card shot-card shadow-sm">
-          <img src="Branding for startup ].png" class="card-img-top" alt="Branding for Startup" />
-          <div class="card-body">
-            <h5 class="card-title">Branding for Startup</h5>
-            <p class="card-text"><small class="text-muted">Category: Branding</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 shot-item" data-title="Smooth Loading Animation" data-category="Animation">
-        <div class="card shot-card shadow-sm">
-          <img src="smooth loading animation 2.gif" class="card-img-top" alt="Smooth Loading Animation" />
-          <div class="card-body">
-            <h5 class="card-title">Smooth Loading Animation</h5>
-            <p class="card-text"><small class="text-muted">Category: Animation</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 shot-item" data-title="Mobile App UI" data-category="UI">
-        <div class="card shot-card shadow-sm">
-          <img src="mobile app UI.png" class="card-img-top" alt="Mobile App UI" />
-          <div class="card-body">
-            <h5 class="card-title">Mobile App UI</h5>
-            <p class="card-text"><small class="text-muted">Category: UI</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 shot-item" data-title="Logo Animation" data-category="Animation">
-        <div class="card shot-card shadow-sm">
-          <img src="logo animation.webp" class="card-img-top" alt="Logo Animation" />
-          <div class="card-body">
-            <h5 class="card-title">Logo Animation</h5>
-            <p class="card-text"><small class="text-muted">Category: Animation</small></p>
-          </div>
-        </div>
-      </div>
-
+     <div class="product-card">
+      <img src="band.jpg" alt="bandage">
+      <p><h1>bandage</h1></p>
+      <h2>rs.60</h2>
     </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer bg-dark text-white py-4 text-center mt-5">
-    <div class="container">
-      <p class="mb-0">&copy; 2025 Dribbble Clone. Designed using Bootstrap.</p>
+    <div class="product-card">
+      <img src="ors..jpeg" alt="Oral rehydration solution">
+      <p><h2>ORS</b></h2>
+      <h2>rs.20</h2>
     </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const shots = document.querySelectorAll('.shot-item');
-    const categoryBadges = document.querySelectorAll('.category-badge');
-    let activeCategory = 'all';
-
-    function filterShots() {
-      const searchText = document.getElementById('searchInput').value.toLowerCase();
-
-      shots.forEach(shot => {
-        const title = shot.getAttribute('data-title').toLowerCase();
-        const category = shot.getAttribute('data-category').toLowerCase();
-        const matchesCategory = (activeCategory === 'all') || (category === activeCategory);
-        const matchesSearch = title.includes(searchText) || category.includes(searchText);
-
-        if (matchesCategory && matchesSearch) {
-          shot.style.display = '';
-        } else {
-          shot.style.display = 'none';
-        }
-      });
-    }
-
-    function filterByCategory(category) {
-      activeCategory = category.toLowerCase();
-
-      categoryBadges.forEach(badge => {
-        badge.classList.toggle('active', badge.textContent.toLowerCase() === activeCategory);
-      });
-
-      filterShots();
-    }
-  </script>
+    <div class="product-card">
+      <img src="amo.jpeg" alt="Amoxicilin">
+      <p><h2>Amoxicilin</h1`></p>
+      <h2>rs.20</h2>
+    </div>
+    <div class="product-card">
+      <img src="sy.jpeg" alt="cough syrup">
+      <p><h1>syrup</h1></p>
+      <h2>rs.120</h2>
+    </div>
+    <div class="product-card">
+      <img src="tab.jpeg" alt="cetirizin">
+      <p><h1>cetrizin</h1></p>
+      <h2>rs.15</h2>
+    </div>
+    </div>
+  </section>
 </body>
 </html>
 
-signup.html
+style.css
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dribbble Clone - Sign Up</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: 'Segoe UI', sans-serif;
+style
+    .body {
+        background-color: aqua;
     }
-    .signup-container {
-      max-width: 500px;
-      margin: 80px auto;
-      background: white;
-      padding: 40px;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; 
+      margin-top: 20px;
+    }
+
+    .product-card {
+      width: 200px;
+      text-align: center;
+      border: 1px green;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      background-color:white
+      
     }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">dribbble</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="main.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shots.html">Shots</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="btn btn-dark ms-2 active" href="signup.html">Sign up</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Signup Form -->
-  <div class="signup-container">
-    <h3 class="text-center mb-4">Create Your Account</h3>
-    <form onsubmit="return validateSignupForm()">
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" placeholder="John Doe" required />
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Create password" required />
-      </div>
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter password" required />
-      </div>
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-      </div>
-    </form>
-    <p class="text-center mt-3">Already have an account? <a href="login.html">Login</a></p>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer bg-dark text-white mt-5 py-4 text-center">
-    <div class="container">
-      <p class="mb-0">&copy; 2025 Dribbble Clone. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function validateSignupForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
-
-      if (!name || !email || !password || !confirmPassword) {
-        alert("Please fill in all fields.");
-        return false;
-      }
-
-      if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return false;
-      }
-
-      alert("Signup successful! (Demo only)");
-      return false; // Prevent form submission in demo
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
     }
-  </script>
-</body>
-</html>
-
-login.html
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dribbble Clone - Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <style>
-    body {
-      background-color: #f0f2f5;
-      font-family: 'Segoe UI', sans-serif;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; 
+      margin-top: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .login-container {
-      max-width: 400px;
-      margin: 80px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .button:hover {
+  background-color: #45a049; /* Darker green */
+  transform: scale(1.1);
     }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">dribbble</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="main.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shots.html">Shots</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="btn btn-dark ms-2" href="signup.html">Sign up</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    .products:hover {
+  transform: scale(1.1); /* Makes it pop */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+}
 
-  <!-- Login Form -->
-  <div class="login-container">
-    <h3 class="text-center mb-4">Login to Your Account</h3>
-    <form onsubmit="return validateLoginForm()">
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="••••••••" required />
-      </div>
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Login</button>
-      </div>
-    </form>
-    <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign up</a></p>
-  </div>
+```
 
-  <!-- Footer -->
-  <footer class="footer bg-dark text-white mt-5 py-4 text-center">
-    <div class="container">
-      <p class="mb-0">&copy; 2025 Dribbble Clone. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function validateLoginForm() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      if (!email || !password) {
-        alert("Please fill in all fields.");
-        return false;
-      }
-
-      alert("Login successful! (Demo only)");
-      return false; // Prevent form submission in demo
-    }
-  </script>
-</body>
-</html>
 
 # OUTPUT:
-<img width="816" height="297" alt="image" src="https://github.com/user-attachments/assets/8b5bf796-1a6c-43c0-b461-11518d3af995" />
-<img width="801" height="428" alt="image" src="https://github.com/user-attachments/assets/67a832bb-0856-4899-9aa7-b092ce45004b" />
-<img width="811" height="431" alt="image" src="https://github.com/user-attachments/assets/5b243961-82de-4138-9b2f-729ecc7a6464" />
-<img width="796" height="416" alt="image" src="https://github.com/user-attachments/assets/01a97ae6-4fb2-414f-ae95-7c1b755d646e" />
-
+![alt text](<Screenshot (26).png>)
 # RESULT:
 The Project for responsive web design using Bootstrap is completed successfully.
